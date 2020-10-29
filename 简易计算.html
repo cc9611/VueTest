@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算</title>
+</head>
+<body>
+    <div id="app">
+        数值A <input type="number" v-model="a"></b>
+        数值B <input type="number" v-model="b"></b>
+        <button v-on:click="handle">计算</button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                a: '',
+                b: '',
+                result: ''
+            }
+        })
+    </script>
+</body>
+</html>
