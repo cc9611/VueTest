@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>计算</title>
+    <style>
+        .active {
+            border: 1px solid red;
+            height: 200px;
+            width: 200px;
+        }
+        .error {
+            background-color: #f59a23;
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
-        数值A <input type="number" v-model="a"></b>
-        数值B <input type="number" v-model="b"></b>
-        <button v-on:click="handle">计算</button>
+    <div id="app" v-bind:class="{active:isActive,error: isError}">
+        数值A <input type="number" v-model="a"></br>
+        数值B <input type="number" v-model="b"></br>
+        <button v-on:click="handle">计算</button></br>
+        <span v-text="result"></span>
     </div>
     <script src="vue.js"></script>
     <script>
@@ -18,8 +29,18 @@
             data: {
                 a: '',
                 b: '',
-                result: ''
-            }
+                result: '',
+                isActive: true,
+                isError: true,
+            },
+            methods: {
+                handle() {
+                    //实现计算
+                    this.result = parseInt(this.a) + parseInt(this.b);
+                    this.isActive = !this.isActive;
+                    this.isError = !this.isError;
+                }
+            },
         })
     </script>
 </body>
